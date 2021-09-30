@@ -25,8 +25,8 @@ jobs:
         with:
           node-version: '14'
     
-      - name: See the list
-        run: ls -al
+      - name: copy config.json
+        run: cp .github/assets/config.json config/config.json && cat config/config.json
         
       - name: Install npm dependencies
         run: npm install
