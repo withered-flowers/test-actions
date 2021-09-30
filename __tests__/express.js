@@ -22,7 +22,8 @@ describe("GET /", function () {
       .then((response) => {
         assert(response.body.msg, "Hello World");
         done();
-      });
+      })
+      .catch((err) => done(err));
   });
 });
 
@@ -33,12 +34,15 @@ describe("GET /user", function () {
       .expect(200)
       .then((response) => {
         expect(response.body.data).toEqual(
-          expect.arrayContaining({
-            email: "Testing",
-            password: "123123123",
-          })
+          expect.arrayContaining([
+            {
+              email: "Testing",
+              password: "123123123",
+            },
+          ])
         );
         done();
-      });
+      })
+      .catch((err) => done(err));
   });
 });
