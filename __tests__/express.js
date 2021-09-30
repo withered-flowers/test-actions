@@ -9,6 +9,7 @@ describe("GET /", function () {
       .expect(200)
       .then((response) => {
         assert(response.body.msg, "Hello World");
+        done();
       });
   });
 });
