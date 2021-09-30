@@ -36,8 +36,8 @@ describe("GET /user", function () {
         expect(response.body.data).toEqual(
           expect.arrayContaining([
             {
+              id: 1,
               email: "Testing",
-              password: "123123123",
             },
           ])
         );

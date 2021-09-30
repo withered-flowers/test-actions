@@ -9,7 +9,11 @@ app.get("/", async (req, res) => {
 
 app.get("/user", async (req, res) => {
   try {
-    const response = await User.findAll();
+    const response = await User.findAll({
+      attributes: {
+        exclude: ["password", "createdAt", "updatedAt"],
+      },
+    });
 
     res.status(200).json({ data: response });
   } catch (err) {
