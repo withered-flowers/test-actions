@@ -30,6 +30,9 @@ jobs:
         
       - name: Install npm dependencies
         run: npm install
+
+      - name: Initialize database
+        run: npx sequelize-cli db:create && npx sequelize-cli db:migrate
       
       - name: Run unit testing
         run: npm run test
