@@ -3,15 +3,15 @@ const request = require("supertest");
 const { User } = require("../models/index");
 const app = require("../app.js");
 
-beforeAll(() => {
-  User.create({
+beforeAll(async () => {
+  await User.create({
     email: "Testing",
     password: "123123123",
   });
 });
 
-afterAll(() => {
-  User.destroy({ truncate: true });
+afterAll(async () => {
+  await User.destroy({ truncate: true });
 });
 
 describe("GET /", function () {
